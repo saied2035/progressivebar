@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Circle from './lib/Components/Circle'
+import Rect from './lib/Components/Rect';
+const App = () => {
+	return (
+		<>
+		<Rect  
+		bar={50}
+		animationDuration={1}
+        width={'170px'}
+        height={'20px'}
+        borderColor={'black'}
+        barColor={'transparent'}
+        animationColor={'#307bbe'}
+        textColor={'black'}
+        borderRadius={'0px'} />
+		<Circle
+		radius={30} 
+        bar={40}
+        barWidth={3}
+        barColor={'#dcdbdc'}
+        textColor={'#307bbe'}
+        animationDuration={1}
+        animationColor={'#307bbe'}
+        size={'80px'} />
+		</>
+	)
 }
-
 export default App;

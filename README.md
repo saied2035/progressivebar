@@ -1,70 +1,133 @@
-# Getting Started with Create React App
+#  progressivebar
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> Progress circular/rectangular bars to calculate statistics or loading screens. 
+ 
+## Built with
 
-## Available Scripts
+  - JavaScript
+  - ReactJS
 
-In the project directory, you can run:
+## Prerequisites
 
-### `npm start`
+  - npm cli
+  - ReactJS project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+In your terminal run `npm install progressivebar`
 
-### `npm test`
+## Usage
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ **Currently there are two types of progress bars:**
 
-### `npm run build`
+ - Circle:
+      ```JavaScript
+        import { Circle } from 'progressivebar';
+      ```
+      - Attributes:
+           - radius: It's number. The radius of the circle in pixels.
+           - bar: It's number. It represents the precentage of the progress.
+           - barWidth: It's number. It represents the width of the circular bar.
+           - barColor: It's string. It represents the bar color, when the progress is zero.
+           - textColor: It's string. It represents the color of the text inside the bar.
+           - animationDuration: It's number. It represents the duration of progress animation in seconds.
+           - animationColor: It's string. It represents the color of the progress on the bar.
+           - size: This is the width of the element in pixels. It get typed like this `size='80px'` 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+      - Default values of the attributes:
+           ```JavaScript
+          {
+            radius: 30, 
+            bar: 0,
+            barWidth: 5,
+            barColor: '#dcdbdc',
+            textColor: '#307bbe',
+            animationDuration: 1,
+            animationColor: '#307bbe',
+            size: '80px'
+          }
+           ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+      - Example:
+           ```JSX
+           <Circle  
+           radius={30} 
+           bar={40}
+           barWidth={3}
+           barColor={'#dcdbdc'}
+           textColor={'#307bbe'}
+           animationDuration={1}
+           animationColor={'#307bbe'}
+           size={'80px'} />
+           ```     
+    
+ - Rectangular:
+      ```JavaScript
+        import { Rect } from 'progressivebar'; 
+      ``` 
+      - Attributes:
+           - bar: It's number. It represents the precentage of the progress.
+           - animationDuration: It's number. It represents the duration of progress animation in seconds.
+           - width: This is the width of the Rectangle in pixels. It get typed like this `width='170px'`
+           - height: This is the height of the Rectangle in pixels. It get typed like this `height='20px'`
+           - borderColor: It's string. It represents the border color.
+           - barColor: It's string. It represents the bar color, when the progress is zero.
+           - animationColor: It's string. It represents the color of the progress on the bar.
+           - textColor: It's string. It represents the color of the text inside the bar.
+           - borderRadius: This is the radius of the border. It get typed like this `borderRadius='5px'` 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+      - Default values of the attributes:
+           ```JavaScript
+          {
+            bar: 0,
+            animationDuration: 1,
+            width: '170px',
+            height: '20px',
+            borderColor: 'black',
+            barColor: 'transparent',
+            animationColor: '#307bbe',
+            textColor: 'black',
+            borderRadius: '0px'
+          }
+           ```
 
-### `npm run eject`
+     - Example:
+          ```JSX
+          <Rect  
+          bar={50}
+          animationDuration={1}
+          width={'170px'}
+          height={'20px'}
+          borderColor={'black'}
+          barColor={'transparent'}
+          animationColor={'#307bbe'}
+          textColor={'black'}
+          borderRadius={'0px'} />
+          ```  
+           
+## Authors
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+👤 **Saied Gaffer**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- GitHub: [@Saied2035](https://github.com/saied2035)
+- Twitter: [@SaiedGaffer](https://twitter.com/SaiedGaffer)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/saiedgaffer/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🤝 Contributing
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Contributions, issues, and feature requests are welcome!
 
-## Learn More
+Feel free to check the [issues page](https://github.com/saied2035/progressivebar/issues).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Show your support
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Give a ⭐️ if you like this project!
 
-### Code Splitting
+## Acknowledgments
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Microverse: [microverse community](https://github.com/microverseinc)
+- Original Design by : [Gregoire Vella](https://www.behance.net/gregoirevella)
 
-### Analyzing the Bundle Size
+## 📝 License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is [MIT](./MIT) licensed.

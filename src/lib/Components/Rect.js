@@ -1,0 +1,86 @@
+import React from 'react'
+
+const validations = (props) => {
+  const { bar, animationDuration, width, height, barColor, animationColor, textColor, borderColor, borderRadius } = props;
+  if(/[0-9]/.test(bar) === false && (bar === '') === false ) return 'bar attribute should be a number.'
+  else if (bar > 100 || bar < 0) return 'Progress bars only accept a number  >= 0 and <= 100 for the bar attribute.'
+  else if (/[0-9]/.test(animationDuration) === false)  return 'animationDuration attribute should be a number (in seconds).'
+  else if ((/[0-9]px$/.test(width)) === false) return 'width attribute should be in pixels in this format: "(number)px"'
+  else if ((/[0-9]px$/.test(height)) === false) return 'height attribute should be in pixels in this format: "(number)px"'
+  else if ((typeof barColor === 'string') === false) return 'barColor should be string in this format: "(color)"'
+  else if ((typeof animationColor === 'string') === false) return 'animationColor should be string in this format: "(color)"'
+  else if ((typeof textColor === 'string') === false) return 'textColor should be string in this format: "(color)"'
+  else if ((typeof borderColor === 'string') === false) return 'borderColor should be string in this format: "(color)"'
+  else if ((/[0-9]px$/.test(borderRadius)) === false) return 'borderRadius attribute should be in pixels in this format: "(number)px"'
+  else return true  
+}
+const countAnimation = (num, duration) => {
+  const progressText = document.getElementById('rect-counter')
+  let counter = parseInt(progressText.textContent, 10)
+  const percent = Math.abs(counter - num) 
+  const progressing = (num) => {
+    const progressText = document.getElementById("rect-counter");
+    if(counter < num) progressText.textContent = `${++counter}%`;
+    if(counter > num) progressText.textContent = `${--counter}%`;
+    if(counter===num) {
+      clearInterval(counts);
+    }
+  }
+  let counts = setInterval(() => progressing(num), (duration * 1000)/percent ); 
+} 
+const progressFunc = (width, num, animationDuration) => {
+  const progress = width * (num/100)
+  document.getElementById('rect-progress-bar').setAttribute('width', progress)
+  countAnimation(num, animationDuration)
+}
+const Rect = (props) => {
+  const result = validations(props)
+  const { bar, animationDuration, width, height, barColor, animationColor, textColor, borderColor, borderRadius } = props;
+  const progress = {
+    transition: `${animationDuration}s width`,
+  };
+  React.useEffect(() => {
+    if(typeof result === 'string') return console.error(result)
+    let timer
+    clearTimeout(timer)
+    timer = setTimeout(() =>  {
+      progressFunc(parseFloat(width, 10), bar, animationDuration)
+    }, 500)
+  },[width, bar, animationDuration, result])  
+  return (
+      <div style={{ width: width, margin:'2px'}}>
+      <svg viewBox={`0 0 ${parseFloat(width, 10)} ${parseFloat(height, 10)}`} 
+      style={{ display: 'block', border: `1px solid ${borderColor}`, borderRadius: borderRadius }}>
+        <rect
+          width={width}
+          height={height}
+          fill={barColor}
+        />
+        <rect
+          id='rect-progress-bar'
+          style={progress}
+          width='0'
+          stroke={animationColor}
+          height={height}
+          fill={animationColor}
+          rx={parseInt(borderRadius, 10)/2}
+        />
+        <text x={parseFloat(width, 10)/2 - 15} y={parseFloat(height, 10)/2 + 5} id="rect-counter" fill={textColor} style={{ fontWeight: 'bold' }}>
+          0%
+        </text>
+      </svg>
+      </div>
+  );
+}
+Rect.defaultProps = {
+  bar: 0,
+  animationDuration: 1,
+  width: '170px',
+  height: '20px',
+  borderColor: 'black',
+  barColor: 'transparent',
+  animationColor: '#307bbe',
+  textColor: 'black',
+  borderRadius: '0px'
+}
+export default Rect;
