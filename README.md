@@ -123,10 +123,6 @@ Feel free to check the [issues page](https://github.com/saied2035/progressivebar
 
 Give a ⭐️ if you like this project!
 
-## Acknowledgments
-
-- Microverse: [microverse community](https://github.com/microverseinc)
-- Original Design by : [Gregoire Vella](https://www.behance.net/gregoirevella)
 
 ## 📝 License
 
