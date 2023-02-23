@@ -15,6 +15,6 @@ Object.defineProperty(exports, "Rect", {
     return _Rect.default;
   }
 });
-var _Circle = _interopRequireDefault(require("./components/Circle"));
-var _Rect = _interopRequireDefault(require("./components/Rect"));
+var _Circle = _interopRequireDefault(require("./Components/Circle"));
+var _Rect = _interopRequireDefault(require("./Components/Rect"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }

@@ -20,9 +20,9 @@ const validations = props => {
     animationColor,
     textColor,
     borderColor,
-    borderRduis
+    borderRadius
   } = props;
-  if (/[0-9]/.test(bar) === false && bar === '' === false) return 'bar attribute should be a number.';else if (bar > 100 || bar < 0) return 'Progress bars only accept a number  >= 0 and <= 100 for the bar attribute.';else if (/[0-9]/.test(animationDuration) === false) return 'animationDuration attribute should be a number (in seconds).';else if (/[0-9]px$/.test(width) === false) return 'width attribute should be in pixels in this format: "(number)px"';else if (/[0-9]px$/.test(height) === false) return 'height attribute should be in pixels in this format: "(number)px"';else if (typeof barColor === 'string' === false) return 'barColor should be string in this format: "(color)"';else if (typeof animationColor === 'string' === false) return 'animationColor should be string in this format: "(color)"';else if (typeof textColor === 'string' === false) return 'textColor should be string in this format: "(color)"';else if (typeof borderColor === 'string' === false) return 'borderColor should be string in this format: "(color)"';else if (/[0-9]px$/.test(borderRduis) === false) return 'borderRduis attribute should be in pixels in this format: "(number)px"';else return true;
+  if (/[0-9]/.test(bar) === false && bar === '' === false) return 'bar attribute should be a number.';else if (bar > 100 || bar < 0) return 'Progress bars only accept a number  >= 0 and <= 100 for the bar attribute.';else if (/[0-9]/.test(animationDuration) === false) return 'animationDuration attribute should be a number (in seconds).';else if (/[0-9]px$/.test(width) === false) return 'width attribute should be in pixels in this format: "(number)px"';else if (/[0-9]px$/.test(height) === false) return 'height attribute should be in pixels in this format: "(number)px"';else if (typeof barColor === 'string' === false) return 'barColor should be string in this format: "(color)"';else if (typeof animationColor === 'string' === false) return 'animationColor should be string in this format: "(color)"';else if (typeof textColor === 'string' === false) return 'textColor should be string in this format: "(color)"';else if (typeof borderColor === 'string' === false) return 'borderColor should be string in this format: "(color)"';else if (/[0-9]px$/.test(borderRadius) === false) return 'borderRadius attribute should be in pixels in this format: "(number)px"';else return true;
 };
 const countAnimation = (num, duration) => {
   const progressText = document.getElementById('rect-counter');
@@ -54,7 +54,7 @@ const Rect = props => {
     animationColor,
     textColor,
     borderColor,
-    borderRduis
+    borderRadius
   } = props;
   const progress = {
     transition: "".concat(animationDuration, "s width")
@@ -77,7 +77,7 @@ const Rect = props => {
     style: {
       display: 'block',
       border: "1px solid ".concat(borderColor),
-      borderRadius: borderRduis
+      borderRadius: borderRadius
     }
   }, /*#__PURE__*/_react.default.createElement("rect", {
     width: width,
@@ -90,7 +90,7 @@ const Rect = props => {
     stroke: animationColor,
     height: height,
     fill: animationColor,
-    rx: parseInt(borderRduis, 10) / 2
+    rx: parseInt(borderRadius, 10) / 2
   }), /*#__PURE__*/_react.default.createElement("text", {
     x: parseFloat(width, 10) / 2 - 15,
     y: parseFloat(height, 10) / 2 + 5,
@@ -110,7 +110,7 @@ Rect.defaultProps = {
   barColor: 'transparent',
   animationColor: '#307bbe',
   textColor: 'black',
-  borderRduis: '10px'
+  borderRadius: '0px'
 };
 var _default = Rect;
 exports.default = _default;
